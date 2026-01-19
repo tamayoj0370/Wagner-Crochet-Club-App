@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wagner Crochet Club</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Join the Wagner Crochet Club!</h1>
+  <p class="subtitle">Sign up easily and start crocheting with us!</p>
+
+  <div class="container">
+    <!-- FORM -->
+    <div class="card">
+      <form id="signupForm" action="https://script.google.com/a/macros/student.judsonisd.org/s/AKfycbzatszFP79hsuJS_v44J2eEn3ON9a4vENXCog8b-Q6tvasRwP1RkLcZJSsFvDJGxlxzgg/exec" method="post" target="hidden_iframe">
+        <label>Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label>Student ID</label>
+        <input id="studentId" name="studentId" type="text" required />
+
+        <label>Grade</label>
+        <select name="grade" required>
+          <option value="">Select</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+
+        <button type="submit">Join Club</button>
+      </form>
+    </div>
+
+    <!-- MEMBERS -->
+    <div class="card members">
+      <h2>Current Members</h2>
+      <ul id="memberList"></ul>
+    </div>
+  </div>
+
+  <!-- hidden iframe to submit form without leaving page -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script src="script.js"></script>
+</body>
+</html>
