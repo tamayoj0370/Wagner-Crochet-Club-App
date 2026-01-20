@@ -1,134 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Wagner Crochet Club Sign-Up</title>
-  <style>
-    /* Body + background */
-    body {
-      font-family: 'Arial', sans-serif;
-      padding: 20px;
-      background: linear-gradient(135deg, #fff1f8, #ffe0b2);
-      color: #333;
-      text-align: center;
-    }
-
-    /* Headings */
-    h1 {
-      color: #8e24aa;
-      font-size: 2.2em;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      color: #6a1b9a;
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-
-    /* Inputs */
-    input {
-      margin: 8px 0;
-      padding: 10px;
-      width: 250px;
-      border: 2px solid #6a1b9a;
-      border-radius: 10px;
-      font-size: 1em;
-    }
-
-    /* Button */
-    button {
-      cursor: pointer;
-      padding: 10px 25px;
-      margin-top: 10px;
-      font-weight: bold;
-      background-color: #8e24aa;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #ab47bc;
-    }
-
-    /* Current Members List */
-    ul#members {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    ul#members li {
-      background-color: #f3e5f5;
-      border: 1px solid #d1c4e9;
-      border-radius: 10px;
-      padding: 10px 15px;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #4a148c;
-      text-align: left;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Wagner Crochet Club</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<h1>🧶 Wagner Crochet Club</h1>
+  <h1>Join the Wagner Crochet Club!</h1>
+  <p class="subtitle">Sign up easily and start crocheting with us!</p>
 
-<h2>Sign Up Easily!</h2>
-<input id="name" placeholder="Name"><br>
-<input id="studentId" placeholder="Student ID"><br>
-<input id="grade" placeholder="Grade"><br>
-<button onclick="addMember()">Submit</button>
+  <div class="container">
+    <!-- FORM -->
+    <div class="card">
+      <form id="signupForm" action="https://script.google.com/a/macros/student.judsonisd.org/s/AKfycbzatszFP79hsuJS_v44J2eEn3ON9a4vENXCog8b-Q6tvasRwP1RkLcZJSsFvDJGxlxzgg/exec" method="post" target="hidden_iframe">
+        <label>Name</label>
+        <input id="name" name="name" type="text" required />
 
-<h2>👩‍🧵 Current Members</h2>
-<ul id="members"></ul>
+        <label>Student ID</label>
+        <input id="studentId" name="studentId" type="text" required />
 
-<script>
-const SCRIPT_URL = "https://script.google.com/a/macros/student.judsonisd.org/s/AKfycby3NEsX0uosEjLIhIddI8fteD0BA-B5OsQGOOiPZnZo8y4AYQwSbFmmIZWR4IpGar7bZA/exec";
+        <label>Grade</label>
+        <select name="grade" required>
+          <option value="">Select</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
 
-/* Add Member */
-function addMember() {
-  const data = {
-    name: document.getElementById("name").value,
-    studentId: document.getElementById("studentId").value,
-    grade: document.getElementById("grade").value
-  };
+        <button type="submit">Join Club</button>
+      </form>
+    </div>
 
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  }).then(() => {
-    document.getElementById("name").value = "";
-    document.getElementById("studentId").value = "";
-    document.getElementById("grade").value = "";
-    loadMembers();
-  });
-}
+    <!-- MEMBERS -->
+    <div class="card members">
+      <h2>Current Members</h2>
+      <ul id="memberList"></ul>
+    </div>
+  </div>
 
-/* Load Members from Google Sheet */
-function loadMembers() {
-  fetch(SCRIPT_URL)
-    .then(res => res.json())
-    .then(data => {
-      const list = document.getElementById("members");
-      list.innerHTML = "";
+  <!-- hidden iframe to submit form without leaving page -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-      for (let i = 1; i < data.length; i++) {
-        const row = data[i];
-        const li = document.createElement("li");
-        li.textContent = `${row[0]} | ID: ${row[1]} | Grade: ${row[2]}`;
-        list.appendChild(li);
-      }
-    });
-}
-
-/* Load members on page refresh */
-window.onload = loadMembers;
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
