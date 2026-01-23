@@ -6,9 +6,11 @@ Especially at school clubs use papers sign up sheets but its not the best way si
 
 ## The solution 
 My app provides a single online sign up page where students can enter their information:
+
 - Name
 - Student ID
 - Grade
+
 This information gets saved automatically to a google sheet which is accesible to the teachers who sponsor this club. Allowing easy acess.
 
 ## Who is this app for
@@ -36,6 +38,6 @@ This app is intended for students who want to join the Wagner High School Croche
 - Also I learned how Github can be used to help you make your project come to life.
 
 ## Links 
-Website: 
+Website: https://tamayoj0370.github.io/Wagner-Crochet-Club-App/
 Google Sheets: https://docs.google.com/spreadsheets/d/1BFn3iJiraY_bTD7_OUxNjMHSGqGI3kbFm-52zCvLOg8/edit?usp=sharing
 Google App script: https://script.google.com/u/0/home/projects/1-Or-RzKHVmmgfkRIKqn5AT32LDMwdxDO7-hzHMZRpdCT4OPqnLSgf57l/edit?pli=1
